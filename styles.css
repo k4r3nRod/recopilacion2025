@@ -1,0 +1,513 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 25%, #4a2c7a 50%, #2d1b4e 75%, #1a0a2e 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Estrellas animadas de fondo */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Header romántico con estilo Hot Wheels */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255, 102, 0, 0.1) 0%, transparent 30%);
+}
+
+/* Logo Hot Wheels */
+.hot-wheels-logo {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 1.5rem;
+    color: #ff6600;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 2px 2px 0 #8e44ad;
+    animation: logoFlame 2s ease-in-out infinite;
+}
+
+@keyframes logoFlame {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 2px 2px 0 #8e44ad; }
+    50% { text-shadow: 0 0 30px rgba(255, 102, 0, 1), 0 0 50px rgba(255, 165, 0, 0.5), 2px 2px 0 #8e44ad; }
+}
+
+/* Llamas decorativas */
+.flames-left, .flames-right {
+    position: absolute;
+    font-size: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: flameWave 1s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
+}
+
+.flames-left { left: 20px; }
+.flames-right { right: 20px; transform: translateY(-50%) scaleX(-1); }
+
+@keyframes flameWave {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.1); }
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #e8b4f8;
+    text-shadow: 0 0 20px rgba(186, 85, 211, 0.8), 0 0 40px rgba(186, 85, 211, 0.4);
+    margin-bottom: 10px;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(186, 85, 211, 0.8), 0 0 40px rgba(186, 85, 211, 0.4); }
+    50% { text-shadow: 0 0 30px rgba(186, 85, 211, 1), 0 0 60px rgba(186, 85, 211, 0.6); }
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #d4a5e8;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+header .subtitle {
+    font-size: 1.3rem;
+    color: #ff9966;
+    font-weight: 400;
+    text-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+}
+
+header .love-note {
+    font-size: 1rem;
+    color: #c9a0dc;
+    font-style: italic;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.heart-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.heart-divider span {
+    font-size: 2rem;
+    color: #9b59b6;
+    margin: 0 15px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.heart-divider::before,
+.heart-divider::after {
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9b59b6, transparent);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Icono de carro */
+.car-icon {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    display: inline-block;
+    animation: drive 4s ease-in-out infinite;
+}
+
+@keyframes drive {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+/* Galería principal */
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 20px;
+}
+
+.photo-card {
+    background: linear-gradient(145deg, rgba(75, 35, 100, 0.8), rgba(45, 20, 65, 0.9));
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(147, 112, 219, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 2px solid rgba(147, 112, 219, 0.3);
+}
+
+.photo-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(186, 85, 211, 0.4);
+    border-color: rgba(186, 85, 211, 0.6);
+}
+
+.photo-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-wrapper img {
+    transform: scale(1.1);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(45, 20, 65, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.5);
+}
+
+.photo-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.photo-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #e8b4f8;
+    margin-bottom: 10px;
+}
+
+.photo-description {
+    color: #c9a0dc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.photo-date {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.3), rgba(142, 68, 173, 0.3));
+    border-radius: 20px;
+    color: #d4a5e8;
+    font-size: 0.85rem;
+    border: 1px solid rgba(186, 85, 211, 0.3);
+}
+
+/* Decoración de carros Hot Wheels */
+.car-decoration {
+    position: fixed;
+    font-size: 3rem;
+    z-index: 2;
+    filter: drop-shadow(0 0 15px rgba(255, 102, 0, 0.8));
+}
+
+.car-1 {
+    bottom: 20px;
+    left: -100px;
+    animation: carDrive1 12s linear infinite;
+}
+
+.car-2 {
+    bottom: 80px;
+    left: -100px;
+    font-size: 2.5rem;
+    animation: carDrive2 18s linear infinite;
+    animation-delay: 3s;
+}
+
+.car-3 {
+    bottom: 50px;
+    left: -100px;
+    font-size: 2rem;
+    animation: carDrive3 10s linear infinite;
+    animation-delay: 6s;
+}
+
+@keyframes carDrive1 {
+    0% { left: -100px; transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-3deg); }
+    100% { left: calc(100% + 100px); transform: rotate(0deg); }
+}
+
+@keyframes carDrive2 {
+    0% { left: -100px; }
+    100% { left: calc(100% + 100px); }
+}
+
+@keyframes carDrive3 {
+    0% { left: -100px; transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-5px); }
+    100% { left: calc(100% + 100px); transform: translateY(0); }
+}
+
+/* Pista de Hot Wheels */
+.hot-wheels-track {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, 
+        rgba(255, 102, 0, 0.3) 0%,
+        rgba(255, 102, 0, 0.1) 30%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hot-wheels-track::before {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        #ff6600 0%, 
+        #9b59b6 25%, 
+        #ff6600 50%, 
+        #9b59b6 75%, 
+        #ff6600 100%);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(155, 89, 182, 0.4);
+}
+
+.hot-wheels-track::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, 
+        #fff 0px, 
+        #fff 20px, 
+        transparent 20px, 
+        transparent 40px);
+    opacity: 0.6;
+}
+
+/* Corazones flotantes */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatUp 8s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Footer romántico Hot Wheels */
+footer {
+    text-align: center;
+    padding: 60px 20px 120px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.trophy {
+    font-size: 4rem;
+    animation: trophyBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes trophyBounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.racing-flags {
+    font-size: 2rem;
+    margin: 15px 0;
+    animation: flagWave 1.5s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+footer .love-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #e8b4f8;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(186, 85, 211, 0.6);
+}
+
+footer .footer-text {
+    color: #ff9966;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+footer p {
+    color: #c9a0dc;
+    font-size: 1rem;
+}
+
+.infinity-love {
+    font-size: 3rem;
+    color: #9b59b6;
+    animation: pulse 2s ease-in-out infinite;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .hot-wheels-logo {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .flames-left, .flames-right {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .photo-wrapper {
+        height: 250px;
+    }
+
+    footer .love-message {
+        font-size: 1.8rem;
+    }
+
+    .trophy {
+        font-size: 3rem;
+    }
+}
+
+/* Placeholder para imágenes */
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4a2c7a 0%, #6b3fa0 50%, #4a2c7a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #d4a5e8;
+}
+
+.placeholder-img .icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.placeholder-img span {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
