@@ -83,6 +83,36 @@ function addSparkleStyles() {
     document.head.appendChild(style);
 }
 
+// Función para revelar foto al hacer clic en la tapadera
+function revelarFoto(tapadera) {
+    tapadera.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    tapadera.style.opacity = '0';
+    tapadera.style.transform = 'scale(1.1) rotateY(90deg)';
+    
+    // Crear efecto de chispas al revelar
+    const wrapper = tapadera.parentElement;
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            const spark = document.createElement('div');
+            spark.textContent = ['✨', '🔥', '💫', '⭐'][Math.floor(Math.random() * 4)];
+            spark.style.position = 'absolute';
+            spark.style.left = Math.random() * 100 + '%';
+            spark.style.top = Math.random() * 100 + '%';
+            spark.style.fontSize = '2rem';
+            spark.style.pointerEvents = 'none';
+            spark.style.animation = 'sparkle 1s ease-out forwards';
+            spark.style.zIndex = '100';
+            wrapper.appendChild(spark);
+            setTimeout(() => spark.remove(), 1000);
+        }, i * 50);
+    }
+    
+    // Remover la tapadera después de la animación
+    setTimeout(() => {
+        tapadera.remove();
+    }, 500);
+}
+
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
