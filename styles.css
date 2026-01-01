@@ -277,6 +277,7 @@ header .love-note {
     bottom: 20px;
     left: -100px;
     animation: carDrive1 12s linear infinite;
+    transform: scaleX(-1);
 }
 
 .car-2 {
@@ -285,6 +286,7 @@ header .love-note {
     font-size: 2.5rem;
     animation: carDrive2 18s linear infinite;
     animation-delay: 3s;
+    transform: scaleX(-1);
 }
 
 .car-3 {
@@ -293,27 +295,28 @@ header .love-note {
     font-size: 2rem;
     animation: carDrive3 10s linear infinite;
     animation-delay: 6s;
+    transform: scaleX(-1);
 }
 
 @keyframes carDrive1 {
-    0% { left: -100px; transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    75% { transform: rotate(-3deg); }
-    100% { left: calc(100% + 100px); transform: rotate(0deg); }
+    0% { left: -100px; transform: scaleX(-1) rotate(0deg); }
+    25% { transform: scaleX(-1) rotate(-5deg); }
+    50% { transform: scaleX(-1) rotate(5deg); }
+    75% { transform: scaleX(-1) rotate(-3deg); }
+    100% { left: calc(100% + 100px); transform: scaleX(-1) rotate(0deg); }
 }
 
 @keyframes carDrive2 {
-    0% { left: -100px; }
-    100% { left: calc(100% + 100px); }
+    0% { left: -100px; transform: scaleX(-1); }
+    100% { left: calc(100% + 100px); transform: scaleX(-1); }
 }
 
 @keyframes carDrive3 {
-    0% { left: -100px; transform: translateY(0); }
-    25% { transform: translateY(-10px); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(-5px); }
-    100% { left: calc(100% + 100px); transform: translateY(0); }
+    0% { left: -100px; transform: scaleX(-1) translateY(0); }
+    25% { transform: scaleX(-1) translateY(-10px); }
+    50% { transform: scaleX(-1) translateY(0); }
+    75% { transform: scaleX(-1) translateY(-5px); }
+    100% { left: calc(100% + 100px); transform: scaleX(-1) translateY(0); }
 }
 
 /* Pista de Hot Wheels */
